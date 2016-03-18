@@ -33,4 +33,21 @@ class HomeController extends Controller {
 		return view('home');
 	}
 
+	public function postChangeLanguage()
+	{
+		$rules = [
+			'language' => 'en,uk,de,ru' //list of supported languages of your application.
+		];
+
+		$language = Input::get('lang'); //lang is name of form select field.
+
+		$validator = Validator::make(compact($language),$rules);
+
+		if($validator->passes())
+		{
+			Session::put('language',$language);
+			App::setLocale($language);
+		}
+	}
+
 }
