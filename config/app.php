@@ -54,6 +54,12 @@ return [
 
 //	'locale' => 'en',
 	'locale' => 'uk',
+	'locales' => [
+		'uk' => 'Українська',
+		'en' => 'English',
+		'de' => 'Deutsche',
+		'ru' => 'Русский',
+	],
 
 	/*
 	|--------------------------------------------------------------------------
@@ -111,6 +117,7 @@ return [
 
 	'providers' => [
 
+		'Collective\Html\HtmlServiceProvider',
 		/*
 		 * Laravel Framework Service Providers...
 		 */
@@ -160,6 +167,9 @@ return [
 	*/
 
 	'aliases' => [
+
+		'Form' => 'Collective\Html\FormFacade',
+		'Html' => 'Collective\Html\HtmlFacade',
 
 		'App'       => 'Illuminate\Support\Facades\App',
 		'Artisan'   => 'Illuminate\Support\Facades\Artisan',

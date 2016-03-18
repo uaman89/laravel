@@ -37,8 +37,18 @@
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <img src="/images/flags/{{ Session::get('locale') }}.jpg" alt=""> <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            @foreach ( config('app.locales') as $langCode => $langCaption )
+                                <li><a href="{{ url('/setlang/'.$langCode) }}">{!! $langCaption !!}</a></li>
+                            @endforeach
+                        </ul>
+					</li>
 					@if (Auth::guest())
-						<li><a href="{{ url('/auth/login') }}">Login</a></li>
+						<li><a href="{{ url('/auth/login') }}"><?=trans('myapp.login')?></a></li>
 						<li><a href="{{ url('/auth/register') }}">Register</a></li>
 					@else
 						<li class="dropdown">
