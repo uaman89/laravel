@@ -1,5 +1,6 @@
 <?php namespace Illuminate\Foundation\Auth;
 
+use App\AppLang;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
@@ -27,7 +28,14 @@ trait AuthenticatesAndRegistersUsers {
 	 */
 	public function getRegister()
 	{
-		return view('auth.register');
+		return view('auth.register',
+			[
+				'form'=> [
+					'action' => url('/auth/register'),
+					'submit' => trans('myapp.register')
+				],
+				'user' => null
+			]);
 	}
 
 	/**
@@ -78,6 +86,7 @@ trait AuthenticatesAndRegistersUsers {
 
 		if ($this->auth->attempt($credentials, $request->has('remember')))
 		{
+            AppLang::setAppLang($request->user()->language);
 			return redirect()->intended($this->redirectPath());
 		}
 

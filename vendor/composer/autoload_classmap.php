@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddLanguageFieldToUsersTable' => $baseDir . '/database/migrations/2016_03_17_210642_add_language_field_to_users_table.php',
+    'CreateAppLangsTable' => $baseDir . '/database/migrations/2016_03_19_162712_create_app_langs_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
