@@ -59,6 +59,29 @@ class AuthController extends Controller {
 
 
     /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function postRegister(Request $request)
+    {
+        $validator = $this->registrar->validator($request->all());
+
+        if ($validator->fails())
+        {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+
+        $this->auth->login($this->registrar->create($request->all()));
+        AppLang::setAppLang($request->input('language'));
+
+        return redirect($this->redirectPath());
+    }
+
+    /**
      * override
      * Handle a login request to the application.
      *
