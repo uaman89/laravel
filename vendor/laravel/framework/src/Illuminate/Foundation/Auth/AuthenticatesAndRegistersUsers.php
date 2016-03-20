@@ -28,14 +28,7 @@ trait AuthenticatesAndRegistersUsers {
 	 */
 	public function getRegister()
 	{
-		return view('auth.register',
-			[
-				'form'=> [
-					'action' => url('/auth/register'),
-					'submit' => trans('myapp.register')
-				],
-				'user' => null
-			]);
+		return view('auth.register');
 	}
 
 	/**
