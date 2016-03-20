@@ -35,4 +35,23 @@ class AuthController extends Controller {
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
 
+	/**
+	 * override
+	 * Show the application registration form.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function getRegister()
+	{
+		return view('auth.register',
+			[
+				'form'=> [
+					'action' => url('/auth/register'),
+					'submit' => trans('myapp.register')
+				],
+				'user' => null
+			]);
+	}
+
+
 }
