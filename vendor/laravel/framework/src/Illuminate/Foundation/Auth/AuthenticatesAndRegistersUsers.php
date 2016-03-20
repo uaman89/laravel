@@ -1,6 +1,5 @@
 <?php namespace Illuminate\Foundation\Auth;
 
-use App\AppLang;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
