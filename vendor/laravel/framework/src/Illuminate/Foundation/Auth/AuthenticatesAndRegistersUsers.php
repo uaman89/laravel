@@ -38,6 +38,7 @@ trait AuthenticatesAndRegistersUsers {
 			]);
 	}
 
+
 	/**
 	 * Handle a registration request for the application.
 	 *
